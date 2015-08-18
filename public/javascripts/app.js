@@ -130,7 +130,10 @@ module.exports = UsersController = (function(_super) {
   }
 
   UsersController.prototype.beforeAction = function() {
-    return this.compose('site', SiteView);
+    return this.site = new SiteView({
+      autoRender: true,
+      autoAttach: true
+    });
   };
 
   UsersController.prototype.index = function(params) {
