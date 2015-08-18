@@ -24,7 +24,11 @@ module.exports = class UsersController extends Chaplin.Controller
   # within many controllers — all non-composed views are deleted.
   beforeAction: ->
     # Site view declares “main” region.
-    @compose 'site', SiteView
+    # @compose 'site', SiteView
+    @site = new SiteView {
+      autoRender: true,
+      autoAttach: true
+    }
 
   # Index action. Will just display a list of users.
   index: (params) ->
